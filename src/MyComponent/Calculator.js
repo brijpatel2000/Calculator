@@ -51,7 +51,7 @@ export default function Cube() {
         let element = document.getElementById("number1")
         window.innerWidth > 700 && element.focus();
     }, [value])
-    
+
 
     const calculation = (value2, btns, value1) => {
         let result = ''
@@ -117,89 +117,93 @@ export default function Cube() {
 
 
     return (
-        <div className='main_div'>
-            <input
-                id="number1"
-                type="text"
-                onChange={(e) => {
-                    const result = e.target.value.replace(/[^0-9/.]/gi, '');
-                    setValue(result);
-                }}
-                value={value}
-                onWheel={(e) => e.target.blur()}
-                autoFocus
-            />
-            <div className="btns">
-                <button
-                    className='grey'
-                    onClick={() => {
-                        setValue("");
-                        setValue1("");
-                        setValue2("");
-                        setBtns("");
+        <>
+            <div className='main_div'>
+                <input
+                    id="number1"
+                    type="text"
+                    onChange={(e) => {
+                        const result = e.target.value.replace(/[^0-9/.]/gi, '');
+                        setValue(result);
                     }}
-                >
-                    {value ? "C" : "AC"}
-                </button>
-                <button className='grey' onClick={Remove}>&#60;</button>
-                <button className='grey'
-                    onClick={() => {
-                        setValue(value/100)
-                    }}
-                >
-                    %
-                </button>
-                <button
-                    className='orange'
-                    onClick={() => {
-                       calC("/")
-                    }}
-                >
-                    &#247;
-                </button>
-                <button className='black' onClick={() => func(7)}>7</button>
-                <button className='black' onClick={() => func(8)}>8</button>
-                <button className='black' onClick={() => func(9)}>9</button>
-                <button
-                    className='multi orange'
-                    onClick={() => {
-                       calC("*")
-                    }}
-                >
-                    +
-                </button>
-                <button className='black' onClick={() => func(4)}>4</button>
-                <button className='black' onClick={() => func(5)}>5</button>
-                <button className='black' onClick={() => func(6)}>6</button>
-                <button
-                    className='orange'
-                    onClick={() => {
-                        calC("-");
-                    }}
-                >
-                    -
-                </button>
-                <button className='black' onClick={() => func(1)}>1</button>
-                <button className='black' onClick={() => func(2)}>2</button>
-                <button className='black' onClick={() => func(3)}>3</button>
-                <button
-                    className='orange'
-                    onClick={() => {
-                        calC("+");
-                    }}
-                >
-                    +
-                </button>
-                <button className='zero black left' onClick={() => func(0)}>0</button>
-                <button className='black' onClick={() => func(".")}>.</button>
-                <button className='orange org'
-                    onClick={() => {
-                        calculation(value, btns, value1)
-                    }}
-                >
-                    =
-                </button>
+                    value={value}
+                    onWheel={(e) => e.target.blur()}
+                    autoFocus />
+                <div className="btns">
+                    <button
+                        className='grey'
+                        onClick={() => {
+                            setValue("");
+                            setValue1("");
+                            setValue2("");
+                            setBtns("");
+                        }}
+                    >
+                        {value ? "C" : "AC"}
+                    </button>
+                    <button className='grey' onClick={Remove}>&#60;</button>
+                    <button className='grey'
+                        onClick={() => {
+                            setValue(value / 100);
+                        }}
+                    >
+                        %
+                    </button>
+                    <button
+                        className='orange'
+                        onClick={() => {
+                            calC("/");
+                        }}
+                    >
+                        &#247;
+                    </button>
+                    <button className='black' onClick={() => func(7)}>7</button>
+                    <button className='black' onClick={() => func(8)}>8</button>
+                    <button className='black' onClick={() => func(9)}>9</button>
+                    <button
+                        className='multi orange'
+                        onClick={() => {
+                            calC("*");
+                        }}
+                    >
+                        +
+                    </button>
+                    <button className='black' onClick={() => func(4)}>4</button>
+                    <button className='black' onClick={() => func(5)}>5</button>
+                    <button className='black' onClick={() => func(6)}>6</button>
+                    <button
+                        className='orange'
+                        onClick={() => {
+                            calC("-");
+                        }}
+                    >
+                        -
+                    </button>
+                    <button className='black' onClick={() => func(1)}>1</button>
+                    <button className='black' onClick={() => func(2)}>2</button>
+                    <button className='black' onClick={() => func(3)}>3</button>
+                    <button
+                        className='orange'
+                        onClick={() => {
+                            calC("+");
+                        }}
+                    >
+                        +
+                    </button>
+                    <button className='zero black left' onClick={() => func(0)}>0</button>
+                    <button className='black' onClick={() => func(".")}>.</button>
+                    <button className='orange org'
+                        onClick={() => {
+                            calculation(value, btns, value1);
+                        }}
+                    >
+                        =
+                    </button>
+                </div>
             </div>
-        </div>
+            <button className='code'>
+            <a href="https://github.com/brijpatel2000/Calculator" target="_blank">Go To Code...</a>
+            </button>
+        </>
     )
 }
