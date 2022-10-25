@@ -8,7 +8,7 @@ export default function Cube() {
     const [btns, setBtns] = React.useState("");
     const [btns1, setBtns1] = React.useState("");
 
-    console.log(+value, 'value', +value1, 'value1', +value2, "value2", btns, 'btns', btns1, 'btns1',);
+    // console.log(+value, 'value', +value1, 'value1', +value2, "value2", btns, 'btns', btns1, 'btns1',);
 
     const func = (prop) => {
         let tempValue = value;
