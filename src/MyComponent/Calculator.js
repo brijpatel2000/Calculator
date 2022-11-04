@@ -7,6 +7,7 @@ export default function Cube() {
     const [value2, setValue2] = React.useState("");
     const [btns, setBtns] = React.useState("");
     const [btns1, setBtns1] = React.useState("");
+    const [result, setResult] = React.useState("");
 
     // console.log(+value, 'value', +value1, 'value1', +value2, "value2", btns, 'btns', btns1, 'btns1',);
 
@@ -70,36 +71,7 @@ export default function Cube() {
     }
 
 
-    // document.addEventListener('keypress', (event) => {
-    //     var name = event.key;
-    //      if (name === "/") {
-    //         btns === "/" ? setBtns("") : setBtns("/");
-    //         setValue1(value);
-    //         setValue2("");
-    //         setValue("")
-    //     } else if (name === "*") {
-    //         btns === "*" ? setBtns("") : setBtns("*");
-    //         setValue1(value);
-    //         setValue2("");
-    //         setValue("")
-    //     } else if (name === "-") {
-    //         btns === "-" ? setBtns("") : setBtns("-");
-    //         setValue1(value);
-    //         setValue2("");
-    //         setValue("")
-    //     } else if (name === "+") {
-    //         btns === "+" ? setBtns("") : setBtns("+");
-    //         setValue1(value);
-    //         setValue2("");
-    //         setValue("")
-    //     } else if (name === "Enter") {
-    //         btns === "=" ? setBtns("") : setBtns("=");
-    //         // let abc = calculation(value, btns, value1);
-    //         let abc = calculation(2, btns, 1);
-    //         setValue(abc)
-    //         console.log(abc);
-    //     }
-    // });
+   
 
     const calC = (sign) => {
         if (value) {
@@ -115,6 +87,36 @@ export default function Cube() {
     }
 
 
+    document.addEventListener('keypress', (event) => {
+        var name = event.key;
+         if (name === "/") {
+            btns === "/" ? setBtns("") : setBtns("/");
+            setValue1(value);
+            setValue2("");
+            setValue("")
+        } else if (name === "*") {
+            btns === "*" ? setBtns("") : setBtns("*");
+            setValue1(value);
+            setValue2("");
+            setValue("")
+        } else if (name === "-") {
+            btns === "-" ? setBtns("") : setBtns("-");
+            setValue1(value);
+            setValue2("");
+            setValue("")
+        } else if (name === "+") {
+            btns === "+" ? setBtns("") : setBtns("+");
+            setValue1(value);
+            setValue2("");
+            setValue("")
+        } else if (name === "Enter") {
+            btns === "=" ? setBtns("") : setBtns("=");
+            setValue1(value);
+            setValue2("");
+            setValue(String(calculation(value, btns, value1)));
+        }
+    });
+
 
     return (
         <>
@@ -123,7 +125,7 @@ export default function Cube() {
                     id="number1"
                     type="text"
                     onChange={(e) => {
-                        const result = e.target.value.replace(/[^0-9/.]/gi, '');
+                        const result = e.target.value.replace(/[^0-9.]/gi, '');
                         setValue(result);
                     }}
                     value={value}
@@ -201,6 +203,8 @@ export default function Cube() {
                     </button>
                 </div>
             </div>
+            
+            
             <button className='code'>
             <a href="https://github.com/brijpatel2000/Calculator" target="_blank">Go To Code...</a>
             </button>
